@@ -1,4 +1,4 @@
-public abstract class Produto implements Comparable{
+public abstract class Produto implements Comparable,IProduto{
 
     private int codigo;
     private String nome;
@@ -11,7 +11,13 @@ public abstract class Produto implements Comparable{
         this.preco = preco;
     }
 
-        // ordena pelo codigo
+    public Produto() {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    // ordena pelo codigo
     @Override
     public int compareTo(Object o) {
        Produto outra = (Produto) o;

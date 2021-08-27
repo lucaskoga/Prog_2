@@ -9,7 +9,7 @@ public class Principal {
         Produto pro2 = new ProdutoUnitario(564,"Carne",29.90,70);
         Produto pro3 = new ProdutoFacionado(5421,"Cebola",4.30,23.5);
         Produto pro4 = new ProdutoFacionado(5252,"Tomate",2.50,14.6);
-        
+
         ArrayList<Produto> lista;
         lista = new ArrayList<>();
 
@@ -26,12 +26,11 @@ public class Principal {
             System.out.println(aux.toString());
         }
         System.out.println("*------*-----*");
-        
+
         double valorTotal = 0;
         for (Produto aux : lista){
             valorTotal = valorTotal + aux.calcularValorEmEstoque();
-            System.out.println(valorTotal);
         }
-        
+        System.out.println(valorTotal);
     }
 }

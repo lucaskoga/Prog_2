@@ -31,6 +31,6 @@ public class Principal {
         for (Produto aux : lista){
             valorTotal = valorTotal + aux.calcularValorEmEstoque();
         }
-        System.out.println(valorTotal);
+        System.out.println("Valor Total dos Produtos a Venda: "+valorTotal);
     }
 }

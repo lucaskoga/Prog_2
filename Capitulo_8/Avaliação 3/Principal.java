@@ -1,60 +1,37 @@
-public abstract class Produto implements Comparable,IProduto{
+import java.util.ArrayList;
+import java.util.Collections;
 
-    private int codigo;
-    private String nome;
-    private double preco;
+public class Principal {
 
-    //Criando o Construtor
-    public Produto(int codigo, String nome, double preco) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.preco = preco;
-    }
+    public static void main(String[] args) {
 
-    public Produto() {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.preco = preco;
-    }
+        Produto pro1 = new ProdutoUnitario(421,"feijao",7.50,50);
+        Produto pro2 = new ProdutoUnitario(564,"Carne",29.90,70);
+        Produto pro3 = new ProdutoFacionado(5421,"Cebola",4.30,23.5);
+        Produto pro4 = new ProdutoFacionado(5252,"Tomate",2.50,14.6);
+        
+        ArrayList<Produto> lista;
+        lista = new ArrayList<>();
 
-    // ordena pelo codigo
-    @Override
-    public int compareTo(Object o) {
-       Produto outra = (Produto) o;
-        if (this.codigo < outra.getCodigo()){
-           return -1;
+        System.out.println("*----*----*");
+
+        lista.add(pro1);
+        lista.add(pro2);
+        lista.add(pro3);
+        lista.add(pro4);
+
+        Collections.sort(lista);
+
+        for (Produto aux : lista){
+            System.out.println(aux.toString());
         }
-        if (this.codigo == outra.getCodigo()){
-          return 0;
-     }
-       return 1;
-   }
-   //Reescrevendo o metodo ToString
-    public String toString(){
-        return "Codigo: "+ codigo + " Nome do Produto: "+ nome;
-    }
-    //Todos os get e set
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
+        System.out.println("*------*-----*");
+        
+        double valorTotal = 0;
+        for (Produto aux : lista){
+            valorTotal = valorTotal + aux.calcularValorEmEstoque();
+            System.out.println(valorTotal);
+        }
+        
     }
 }
